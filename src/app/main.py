@@ -11,6 +11,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {
+        "status": "running",
+        "title": "Intelligent QA System",
+        "endpoints": {
+            "/health": "GET - Health check",
+            "/qa": "POST - Ask a question"
+        }
+    }
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
