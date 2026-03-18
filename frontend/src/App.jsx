@@ -8,8 +8,8 @@ function App() {
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
 
-  // In Vercel, FastAPI function is served under /api
-  const API_URL = import.meta.env.VITE_API_URL || '/api'
+  // Same-domain API base. Leave empty to call /qa directly.
+  const API_URL = import.meta.env.VITE_API_URL || ''
 
   const handleAsk = async () => {
     if (!question.trim()) {

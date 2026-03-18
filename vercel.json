@@ -1,11 +1,45 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist",
-  "rewrites": [
-    { "source": "/health", "destination": "/api/health" },
-    { "source": "/qa", "destination": "/api/qa" },
-    { "source": "/docs", "destination": "/api/docs" },
-    { "source": "/openapi.json", "destination": "/api/openapi.json" }
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/health$",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "^/qa$",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "^/docs$",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "^/openapi.json$",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "^/api/(.*)$",
+      "dest": "api/index.py"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^(?!/api|/qa|/health|/docs|/openapi.json).*$",
+      "dest": "/index.html"
+    }
   ]
 }
