@@ -3,25 +3,9 @@
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "rewrites": [
-    {
-      "source": "/health",
-      "destination": "/api/health"
-    },
-    {
-      "source": "/qa",
-      "destination": "/api/qa"
-    },
-    {
-      "source": "/docs",
-      "destination": "/api/docs"
-    },
-    {
-      "source": "/openapi.json",
-      "destination": "/api/openapi.json"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/health", "destination": "/api/health" },
+    { "source": "/qa", "destination": "/api/qa" },
+    { "source": "/docs", "destination": "/api/docs" },
+    { "source": "/openapi.json", "destination": "/api/openapi.json" }
   ]
 }
