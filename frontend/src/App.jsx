@@ -8,7 +8,8 @@ function App() {
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
 
-  const API_URL = 'http://localhost:8000'
+  // Use same origin for both dev and production
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
   const handleAsk = async () => {
     if (!question.trim()) {
