@@ -8,8 +8,8 @@ function App() {
   const [error, setError] = useState(null)
   const [result, setResult] = useState(null)
 
-  // Use same origin for both dev and production
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+  // In Vercel, FastAPI function is served under /api
+  const API_URL = import.meta.env.VITE_API_URL || '/api'
 
   const handleAsk = async () => {
     if (!question.trim()) {

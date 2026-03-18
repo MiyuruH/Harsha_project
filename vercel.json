@@ -4,16 +4,20 @@
   "outputDirectory": "frontend/dist",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
+      "source": "/health",
+      "destination": "/api/health"
     },
     {
       "source": "/qa",
-      "destination": "/api"
+      "destination": "/api/qa"
     },
     {
-      "source": "/health",
-      "destination": "/api"
+      "source": "/docs",
+      "destination": "/api/docs"
+    },
+    {
+      "source": "/openapi.json",
+      "destination": "/api/openapi.json"
     },
     {
       "source": "/(.*)",
